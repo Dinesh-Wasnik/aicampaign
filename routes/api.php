@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+//route for login 
+Route::post('/login', 'LoginController@login'); 
+
+Route::middleware('auth:api')->prefix('user')->group(function () {
+
+        //route for eligibility check
+        Route::post('/eligibility_check', 'CampaginController@eligibilityCheck')->name('eligibility_check'); 
+
+        //route for validate photo submission
+        Route::post('/validate_submission', 'CampaginController@validateSubmission')->name('validate_submission');
 });
+
