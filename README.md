@@ -37,8 +37,8 @@
 
 
 ## Postman Guidine.
- -- For client_id field  take value from id colomn of  ```oauth_clients```  table from 2nd id .
+ -- For client_id field  take value from id column of  ```oauth_clients```  table from 2nd id .
  
- -- For client_secret  field  take value from secret colomn of ```oauth_clients```  table from 2nd row .
+ -- For client_secret  field  take value from secret column of ```oauth_clients```  table from 2nd row .
 
 
