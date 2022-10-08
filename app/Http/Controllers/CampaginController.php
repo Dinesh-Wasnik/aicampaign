@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Middleware\ValidateCampaign;
 use App\Transaction;
 use App\Voucher;
 use App\Helper;
@@ -13,7 +12,7 @@ class CampaginController extends Controller
 {   
     // validate request
     public function __construct(Request $request){
-        //$this->middleware('ValidateCampaign');
+        $this->middleware('ValidateCampaign');
     }
 
     //check the eligibility of users
@@ -36,7 +35,7 @@ class CampaginController extends Controller
     }
    
 
-    //validate the pic and return voucher code .
+    //validate the pic and return voucher code.
     public function validateSubmission(Request $request){
 
         $userId = request()->user()->id;
@@ -50,6 +49,7 @@ class CampaginController extends Controller
         $currentTime = Carbon::now();
         $diff =  $currentTime->diffInMinutes($voucher->lock_at);
 
+        //if validate image and in time upload
         if($status == 1 && $diff <= 10){
 
             //update voucher information
@@ -61,7 +61,7 @@ class CampaginController extends Controller
             return response()->json(['voucer_code ' => $voucher->code]);
         }
 
-
+        //if invalidate image or  time limit exceed
         if($status == 0 || $diff >= 10){
 
             //update voucher information

@@ -19,9 +19,9 @@ class ValidateCampaign
     {
         //check for validity of campaign
         if(!(Helper::checkCampaign('Anniversary_celebration'))){
-             return response()->json('No campaign running');
+             return response()->json(['error' => 'No campaign running']);
         }
-        
+
         return $next($request);
        
     }
