@@ -5,7 +5,7 @@ namespace App;
 use  Carbon\Carbon;
 
 
-class Helpers
+class Helper
 {   
 
     // This function check the campaigin is active or not,
@@ -26,6 +26,13 @@ class Helpers
 
     }//end
 
+
+    //call for image recongnition api
+    public static function imageRecongnition()
+    {
+        return rand(0, 1);
+    }
+    
 
 }
 

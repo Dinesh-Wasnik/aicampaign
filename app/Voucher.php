@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Voucher extends Model
 {
     
@@ -23,4 +23,31 @@ class Voucher extends Model
 
         return false;    
     }//end
+
+
+    // lock the vocher for 10 min
+    // not work.
+    // @param integer $userID 
+    public static function assign(int $userId)
+    {   
+        //first select voucher
+        $voucher = self::select('id', 'code')->where('is_lock', 0)
+                            ->whereNull('assign_to')->lockForUpdate()->first();
+
+        $voucher->assign_to = $userId;
+        $voucher->lock_at   = Carbon::now();
+
+        //update the voucher
+        $voucher->save();
+    }
+
+
+
+    // Get the voucher by userid
+    // @param integer $userID
+    public static function getVoucherById(int $userId)
+    {
+        return self::select('id', 'code', 'lock_at')->where('assign_to', $userId)->first();
+    }
+
 }

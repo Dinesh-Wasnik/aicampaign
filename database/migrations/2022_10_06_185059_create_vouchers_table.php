@@ -18,6 +18,8 @@ class CreateVouchersTable extends Migration
             $table->string('code')->unique();
             $table->integer('assign_to');
             $table->enum('is_lock', ['0', '1'])->default(0);
+            $table->date('lock_at');
+            $table->date('assign_at');
             $table->timestamps();
         });
     }

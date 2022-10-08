@@ -3,9 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
+
 use App\Helper;
 
-class validateCampaign
+class ValidateCampaign
 {
     /**
      * Handle an incoming request.
@@ -17,10 +18,11 @@ class validateCampaign
     public function handle($request, Closure $next)
     {
         //check for validity of campaign
-        if(Helper::checkCampaign('Anniversary_celebration')){
-            return $next($request); 
+        if(!(Helper::checkCampaign('Anniversary_celebration'))){
+             return response()->json('No campaign running');
         }
-
-        return false;
+        
+        return $next($request);
+       
     }
 }

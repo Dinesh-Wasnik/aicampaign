@@ -20,10 +20,14 @@ Route::post('/login', 'LoginController@login');
 
 Route::middleware('auth:api')->prefix('user')->group(function () {
 
+    // Route::middleware('ValidateCampaign')->group(function(){
         //route for eligibility check
         Route::post('/eligibility_check', 'CampaginController@eligibilityCheck')->name('eligibility_check'); 
 
         //route for validate photo submission
         Route::post('/validate_submission', 'CampaginController@validateSubmission')->name('validate_submission');
+
+    // });    
+
 });
 
