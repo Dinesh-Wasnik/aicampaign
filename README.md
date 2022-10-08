@@ -20,10 +20,10 @@
 		DB_DATABASE=aicampaign
 		DB_USERNAME=root
 		DB_PASSWORD=
-		```
+	 ```
 	set value like this.	
 
-# Run Below commands
+## Run Below commands
 
  -- ```Composer install``` .
  
@@ -31,9 +31,9 @@
  -- ```PHP artisan migrate ``` 
 
 
- -- ```PHP artisan db:seed  ```.
+ -- ```PHP artisan db:seed  ``` .
 
- -- ```php artisan passport:keys ```.
+ -- ```php artisan passport:keys ``` .
 
 
 ## Postman Guidine.
