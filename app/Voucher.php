@@ -47,7 +47,10 @@ class Voucher extends Model
     // @param integer $userID
     public static function getVoucherById(int $userId)
     {
-        return self::select('id', 'code', 'lock_at')->where('assign_to', $userId)->first();
+        return self::select('id', 'code', 'lock_at')
+                        ->where('assign_to', $userId)
+                        ->where('is_lock', 0)->first();
     }
+
 
 }

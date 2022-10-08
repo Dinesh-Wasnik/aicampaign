@@ -24,7 +24,7 @@ class CampaginController extends Controller
         $check = Transaction::eligibilityCheck($userId);
 
         //chekc if user already redeem voucher or not 
-        if(!(Voucher::redeemed($userId)))
+        if(!(Voucher::redeemed($userId)) &&  $check)
         {
             Voucher::assign($userId);
 
@@ -46,11 +46,15 @@ class CampaginController extends Controller
         //get user locked vocher data.
         $voucher = Voucher::getVoucherById($userId);
 
+        if(empty($voucher)){
+            return response()->json(['error' => 'voucher not found']);
+        }
+
         $currentTime = Carbon::now();
         $diff =  $currentTime->diffInMinutes($voucher->lock_at);
 
         //if validate image and in time upload
-        if($status == 1 && $diff <= 10){
+        if($status == 1 && $diff <= 10 && $voucher->is_lock == 0){
 
             //update voucher information
             $voucher->assign_at = Carbon::now(); 
@@ -62,11 +66,15 @@ class CampaginController extends Controller
         }
 
         //if invalidate image or  time limit exceed
-        if($status == 0 || $diff >= 10){
+        if($voucher->is_lock != 1 && ($status == 0 || $diff >= 10))
+        {
 
             //update voucher information
-            $voucher->lock_at   = null; 
-            $voucher->assign_to = null; 
+            $voucher->lock_at   =  null; 
+            $voucher->assign_to =  null; 
+            $voucher->assign_at =  null; 
+            $voucher->is_lock   =  0; 
+
             $voucher->save();
 
             //return voucher code 
