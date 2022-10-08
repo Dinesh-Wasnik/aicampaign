@@ -54,7 +54,7 @@ class CampaginController extends Controller
         $diff =  $currentTime->diffInMinutes($voucher->lock_at);
 
         //if validate image and in time upload
-        if($status == 1 && $diff <= 10 && $voucher->is_lock == 0){
+        if($status == 1 && $diff <= 10){
 
             //update voucher information
             $voucher->assign_at = Carbon::now(); 
@@ -66,14 +66,13 @@ class CampaginController extends Controller
         }
 
         //if invalidate image or  time limit exceed
-        if($voucher->is_lock != 1 && ($status == 0 || $diff >= 10))
+        if($status == 0 || $diff >= 10)
         {
 
             //update voucher information
             $voucher->lock_at   =  null; 
             $voucher->assign_to =  null; 
             $voucher->assign_at =  null; 
-            $voucher->is_lock   =  0; 
 
             $voucher->save();
 
