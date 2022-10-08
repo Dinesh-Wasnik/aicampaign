@@ -1,7 +1,7 @@
 
 ## About Project
 
-- Assign vocher to customer which eligible for campaign.
+- Assign voucher to customer which eligible for campaign.
 
 
 ## Project Requirement
