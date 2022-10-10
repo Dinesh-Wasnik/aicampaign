@@ -33,18 +33,18 @@
 
  - ```PHP artisan db:seed  ``` .
 
- -- ```php artisan passport:keys ``` .
+ - ```php artisan passport:keys ``` .
 
 
 ## Postman Guidine.
  - For client_id field  take value from id column of  ```oauth_clients```  table from 2nd id .
  
- -- For client_secret  field  take value from secret column of ```oauth_clients```  table from 2nd row .
+ - For client_secret  field  take value from secret column of ```oauth_clients```  table from 2nd row .
  
  ## Task Scheduling
   - Add  the following Cron entry to server, in linux server add cron to crontab file.
 
-   ``` * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1 ```
+       ``` * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1 ```
   - Replace the project path with your system project url
   
 
