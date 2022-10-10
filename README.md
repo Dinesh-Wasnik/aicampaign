@@ -10,11 +10,11 @@
 
 
 ## Project Setup
- -- Clone the from this link ```https://github.com/Dinesh-Wasnik/aicampaign.git```
+ - Clone the from this link ```https://github.com/Dinesh-Wasnik/aicampaign.git```
 
- -- Create database and set value in .env file.
+ - Create database and set value in .env file.
 
- -- ```DB_CONNECTION=mysql
+ - ```DB_CONNECTION=mysql
 		DB_HOST=127.0.0.1
 		DB_PORT=3306
 		DB_DATABASE=aicampaign
@@ -25,20 +25,27 @@
 
 ## Run Below commands
 
- -- ```Composer install``` .
+ - ```Composer install``` .
  
 
- -- ```PHP artisan migrate ``` 
+ - ```PHP artisan migrate ``` 
 
 
- -- ```PHP artisan db:seed  ``` .
+ - ```PHP artisan db:seed  ``` .
 
  -- ```php artisan passport:keys ``` .
 
 
 ## Postman Guidine.
- -- For client_id field  take value from id column of  ```oauth_clients```  table from 2nd id .
+ - For client_id field  take value from id column of  ```oauth_clients```  table from 2nd id .
  
  -- For client_secret  field  take value from secret column of ```oauth_clients```  table from 2nd row .
+ 
+ ## Task Scheduling
+  - Add  the following Cron entry to server, in linux server add cron to crontab file.
+
+   ``` * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1 ```
+  - Replace the project path with your system project url
+  
 
 
