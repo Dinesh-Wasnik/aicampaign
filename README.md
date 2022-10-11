@@ -82,6 +82,10 @@ Build 2 APIs to support frontend development:
  
  - For client_secret  field  take value from secret column of ```oauth_clients```  table from 2nd row .
  
+## APi Document link
+ - https://documenter.getpostman.com/view/10476122/2s83zgvQor#fa5447a9-8f59-426c-9650-24a3bd132c90
+ 
+ 
  ## Task Scheduling
   - Add  the following Cron entry to server, in linux server add cron to crontab file.
 
