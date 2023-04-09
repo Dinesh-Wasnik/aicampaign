@@ -74,7 +74,7 @@ Build 2 APIs to support frontend development:
 
  - ```PHP artisan db:seed  ``` .
 
- - ```php artisan passport:keys ``` .
+ - ```php artisan passport:install ``` .
 
 
 ## Postman Guidine.
