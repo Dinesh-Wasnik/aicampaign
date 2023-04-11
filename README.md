@@ -46,7 +46,7 @@ Build 2 APIs to support frontend development:
         
         
 ## Project Requirement
-- You can setup project xampp or wampp software
+- You can setup project on xampp or wampp software
 - Laragon software is recommended.
 
 
