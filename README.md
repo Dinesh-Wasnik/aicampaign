@@ -77,7 +77,7 @@ Build 2 APIs to support frontend development:
  - ```php artisan passport:install ``` .
 
 
-## Postman Guidine.
+## Postman Guidelines.
  - For client_id field  take value from id column of  ```oauth_clients```  table from 2nd id .
  
  - For client_secret  field  take value from secret column of ```oauth_clients```  table from 2nd row .
